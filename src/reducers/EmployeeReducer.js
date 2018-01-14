@@ -1,13 +1,11 @@
-//@flow
-import type { Action, ActionType } from '../actions/types';
+import { EMPLOYEES_FETCH_SUCCESS } from '../actions/types';
 
 const INITIAL_STATE = {};
 
-export default (state: any = INITIAL_STATE, action: Action<*>) => {
-  const type: ActionType = action.type;
-
-  switch (type) {
-    case 'EMPLOYEES_FETCH_SUCCESS':
+export default (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case EMPLOYEES_FETCH_SUCCESS:
+      console.log('success', action.payload);
       return action.payload;
     default:
       return state;

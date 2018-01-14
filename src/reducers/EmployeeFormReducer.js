@@ -1,6 +1,8 @@
-// @flow
-import type { ActionType, Action } from '../actions/types';
-import type { EmployeeUpdate } from '../actions/EmployeeActions';
+import {
+  EMPLOYEE_CREATE,
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_SUCCESS
+} from '../actions/types';
 
 const INITIAL_STATE = {
   name: '',
@@ -8,14 +10,13 @@ const INITIAL_STATE = {
   shift: ''
 };
 
-export default (
-  state: typeof INITIAL_STATE = INITIAL_STATE,
-  action: Action<EmployeeUpdate>
-): typeof INITIAL_STATE => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'EMPLOYEE_UPDATE':
+    case EMPLOYEE_UPDATE:
       return { ...state, [action.payload.prop]: action.payload.value };
-    case 'EMPLOYEE_CREATE':
+    case EMPLOYEE_CREATE:
+      return INITIAL_STATE;
+    case EMPLOYEE_SUCCESS:
       return INITIAL_STATE;
     default:
       return state;
