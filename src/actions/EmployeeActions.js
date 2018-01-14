@@ -3,9 +3,16 @@ import { Actions } from 'react-native-router-flux';
 import {
   EMPLOYEE_CREATE,
   EMPLOYEE_UPDATE,
-  EMPLOYEES_FETCH_SUCCESS,
-  EMPLOYEE_SAVE_SUCCESS
+  EMPLOYEE_SAVE_SUCCESS,
+  EMPLOYEES_FETCH_SUCCESS
 } from './types';
+
+export const employeeUpdate = ({ prop, value }) => {
+  return {
+    type: EMPLOYEE_UPDATE,
+    payload: { prop, value }
+  };
+};
 
 export const employeeCreate = ({ name, phone, shift }) => {
   const { currentUser } = firebase.auth();

@@ -8,7 +8,6 @@ import ListItem from './ListItem';
 class EmployeeList extends Component {
   componentWillMount() {
     this.props.employeesFetch();
-    console.log('here?');
     this.createDataSource(this.props);
   }
 
@@ -20,7 +19,6 @@ class EmployeeList extends Component {
     const ds = new ListView.DataSource({
       rowHasChanged: (r1, r2) => r1 !== r2
     });
-    console.log('employees', employees);
     this.dataSource = ds.cloneWithRows(employees);
   }
 
@@ -29,7 +27,6 @@ class EmployeeList extends Component {
   }
 
   render() {
-    console.log('dataSource', this.dataSource);
     return (
       <ListView
         enableEmptySections
